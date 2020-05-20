@@ -26,7 +26,7 @@ const Product = (props) => {
         <div>
             <div key={product._id}>
                 <h3>{product.title}</h3>
-                <h5>Price: {product.price}</h5>
+                <h5>Price: ${product.price}</h5>
                 <p>Description: {product.description}</p>
             </div>
         </div>
