@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
+import { Link } from "@reach/router";
 
 const Products = (props) => {
     const [products, setProducts] = useState(null);
@@ -20,13 +21,13 @@ const Products = (props) => {
     return (
         <div>
             <h2>All Products</h2>
-
+            <hr />
             {products.map((product) => {
                 return (
                     <div key={product._id}>
-                        <h3>{product.title}</h3>
-                        <h5>Price: {product.price}</h5>
-                        <p>Description: {product.description}</p>
+                        <h3>
+                            <Link to={`/product/${product._id}`}>{product.title}</Link>
+                        </h3>
                     </div>
                 );
             })}

@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 import { Redirect, Router, Link } from "@reach/router";
 
-import NotFound from "./views/NotFound"
-import NewProduct from "./views/NewProduct"
-import Products from "./views/Products"
+import NotFound from "./views/NotFound";
+import NewProduct from "./views/NewProduct";
+import Products from "./views/Products";
+import Product from "./views/Product";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <NotFound default />
         <NewProduct path="/product/new" />
         <Products path="/products" />
+        <Product path="/product/:id" />
       </Router>
     </div >
   );
