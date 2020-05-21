@@ -7,6 +7,7 @@ const NewProduct = (props) => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
+    const [errors, setErrors] = useState({});
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -23,7 +24,8 @@ const NewProduct = (props) => {
                 navigate("/products")
             })
             .catch((err) => {
-                console.log(err);
+                setErrors(err.response.data.errors);
+                console.log(err.response.data.errors);
             });
     };
 
@@ -43,6 +45,7 @@ const NewProduct = (props) => {
                                 setTitle(event.target.value);
                             }}
                         />
+                        {errors.title ? (<span style={{ color: "red" }}>{errors.title.message}</span>) : ("")}
                     </div>
                 </div>
                 <br />
@@ -59,6 +62,7 @@ const NewProduct = (props) => {
                                 setPrice(event.target.value);
                             }}
                         />
+                        {errors.price ? (<span style={{ color: "red" }}>{errors.price.message}</span>) : ("")}
                     </div>
                 </div>
                 <br />
@@ -75,6 +79,7 @@ const NewProduct = (props) => {
                                 setDescription(event.target.value);
                             }}
                         />
+                        {errors.description ? (<span style={{ color: "red" }}>{errors.description.message}</span>) : ("")}
                     </div>
                 </div>
                 <button>Create</button>

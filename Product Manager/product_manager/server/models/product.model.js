@@ -12,6 +12,7 @@ const ProductSchema = new mongoose.Schema(
         price: {
             type: Number,
             required: [true, requiredErrMsg],
+            min: [0, "{PATH} must be at least 0"],
         },
         description: {
             type: String,

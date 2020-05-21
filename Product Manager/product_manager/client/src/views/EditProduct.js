@@ -7,6 +7,7 @@ const EditProduct = (props) => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
         axios
@@ -37,7 +38,8 @@ const EditProduct = (props) => {
                 navigate("/product/" + res.data._id)
             })
             .catch((err) => {
-                console.log(err);
+                setErrors(err.response.data.errors);
+                console.log(err.response.data.errors);
             });
     };
 
@@ -57,6 +59,7 @@ const EditProduct = (props) => {
                                 setTitle(event.target.value);
                             }}
                         />
+                        {errors.title ? (<span style={{ color: "red" }}>{errors.title.message}</span>) : ("")}
                     </div>
                 </div>
                 <br />
@@ -73,6 +76,7 @@ const EditProduct = (props) => {
                                 setPrice(event.target.value);
                             }}
                         />
+                        {errors.price ? (<span style={{ color: "red" }}>{errors.price.message}</span>) : ("")}
                     </div>
                 </div>
                 <br />
@@ -89,6 +93,7 @@ const EditProduct = (props) => {
                                 setDescription(event.target.value);
                             }}
                         />
+                        {errors.description ? (<span style={{ color: "red" }}>{errors.description.message}</span>) : ("")}
                     </div>
                 </div>
                 <button>Update</button>

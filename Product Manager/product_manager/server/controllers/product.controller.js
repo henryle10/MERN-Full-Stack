@@ -7,7 +7,7 @@ module.exports = {
                 res.json(product);
             })
             .catch((err) => {
-                res.json(err);
+                res.status(400).json(err);
             });
     },
     getAll(req, res) {
@@ -16,7 +16,7 @@ module.exports = {
                 res.json(products);
             })
             .catch((err) => {
-                res.json(err);
+                res.status(400).json(err);
             });
     },
     getOne(req, res) {
