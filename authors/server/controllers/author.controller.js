@@ -12,6 +12,7 @@ module.exports = {
     },
     getAll(req, res) {
         Author.find()
+            .sort({ name: 1 })
             .then((authors) => {
                 res.json(authors);
             })

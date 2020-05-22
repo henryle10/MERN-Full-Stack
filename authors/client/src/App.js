@@ -7,6 +7,7 @@ import NewAuthor from "./views/NewAuthor";
 import Authors from "./views/AllAuthors";
 import EditAuthor from "./views/EditAuthor";
 
+
 function App() {
   return (
     <div className="App">

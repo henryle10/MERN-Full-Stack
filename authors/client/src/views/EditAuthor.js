@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { navigate } from "@reach/router";
+import { navigate, Link } from "@reach/router";
 
 const EditAuthor = (props) => {
     const [name, setName] = useState("");
     const [errors, setErrors] = useState({});
+
 
     useEffect(() => {
         fetchData();
@@ -38,6 +39,8 @@ const EditAuthor = (props) => {
                 console.log(err.response.data.errors);
             })
     };
+
+
 
     return (
         <div className="container">

@@ -43,7 +43,7 @@ const Authors = (props) => {
                         <th>Author</th>
                         <th>Actions Avaiable</th>
                     </thead>
-                    {authors.map((author) => {
+                    {authors.sort().map((author) => {
                         return (
                             <tbody>
                                 <tr>
